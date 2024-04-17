@@ -50,10 +50,11 @@ const authenticateJwt = (req, res, next) => {
   }
 };
 
-mongoose.connect(
-  "mongodb+srv://abhishekshetter1999:aspj@cluster0.cddzidw.mongodb.net/courses",
-  { useNewUrlParser: true, useUnifiedTopology: true, dbName: "courses" }
-);
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  dbName: "courses",
+});
 
 // admin  routes
 app.post("/admin/signup", async (req, res) => {
